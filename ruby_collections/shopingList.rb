@@ -28,7 +28,7 @@ def print_list(list)
     list['items'].each do |item|
         puts "\t\t\tItem: " + item['name'] + "\t\t\tQuantity: " + item['quantity'].to_s
     end
-    ``
+    
     print_separator()
 end
 

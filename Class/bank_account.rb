@@ -11,7 +11,7 @@ class BankAccount
         add_transaction(description, amount)
     end
 
-    def debet(description, amount)
+    def debit(description, amount)
         add_transaction(description, -amount)
     end
 
@@ -30,6 +30,20 @@ class BankAccount
     def to_s
         "Name: #{name}, Balance: #{sprintf("%0.2f", balance)}"
     end
+
+    def print_register
+        puts "#{name}'s Bank Account"
+        puts "-" * 40
+    
+        puts "Description".ljust(30) + "Amount".rjust(10)
+        @transactions.each do |transaction|
+          puts transaction[:description].ljust(30) + sprintf("%0.2f", transaction[:amount]).rjust(10)
+        end
+    
+        puts "-" * 40
+        puts "Balance:".ljust(30) + sprintf("%0.2f", balance).rjust(10)
+        puts "-" * 40
+      end
 end
 
 # Create a new object from class BankAccount 
@@ -37,8 +51,13 @@ bank_account = BankAccount.new("Andrey")
 
 # Add transactions to account object
 bank_account.credit("Paycheck", 100)
-bank_account.debet("Fuel for car", 40)
+bank_account.debit("Fuel for car", 40)
+bank_account.debit("Gas", 10.51)
 
 # PrintOut balance of name
 puts bank_account.inspect
 puts bank_account
+
+# Call print_registe method to show up all transactions of current account
+puts "Register:"
+bank_account.print_register

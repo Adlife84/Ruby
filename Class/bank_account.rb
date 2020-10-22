@@ -51,8 +51,10 @@ bank_account = BankAccount.new("Andrey")
 
 # Add transactions to account object
 bank_account.credit("Paycheck", 100)
+bank_account.credit("Paycheck", 600)
 bank_account.debit("Fuel for car", 40)
 bank_account.debit("Gas", 10.51)
+bank_account.debit("Insurance", 22.51)
 
 # PrintOut balance of name
 puts bank_account.inspect

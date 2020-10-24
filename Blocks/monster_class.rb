@@ -30,7 +30,7 @@ class Monster
     def scream(&block)
         @actions[:screams] += 1
         print "#{name} screams!"
-        yield
+        yield self if block_given? # if block give something proveide (self) means all class Monster
     end
 
     def print_scoreboard
@@ -49,8 +49,9 @@ end
 monster = Monster.new("Fluffy")
 monster.say { puts "Welcome to my home."}
 
-monster.scream do 
+monster.scream do |monster|
     puts "BOO!!!"
+    puts monster.print_scoreboard
 end
 
 monster.scream do 

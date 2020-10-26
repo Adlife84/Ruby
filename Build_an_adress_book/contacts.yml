@@ -1,0 +1,93 @@
+---
+- !ruby/object:Contact
+  phone_numbers:
+  - !ruby/object:PhoneNumber
+    kind: Phone
+    number: 911-123-45-67
+  - !ruby/object:PhoneNumber
+    kind: Phone
+    number: 912-321-54-76
+  addresses:
+  - !ruby/object:Address
+    kind: Home
+    street_1: 123 Main St.
+    street_2: ''
+    city: Portland
+    state: OR
+    postal_code: '12345'
+  first_name: Andrey
+  middle_name: Igorevich
+  last_name: Komolov
+- !ruby/object:Contact
+  phone_numbers:
+  - !ruby/object:PhoneNumber
+    kind: Phone
+    number: 911-987-65-43
+  - !ruby/object:PhoneNumber
+    kind: Phone
+    number: 912-412-22-44
+  addresses:
+  - !ruby/object:Address
+    kind: Office
+    street_1: 2201 Main St.
+    street_2: ''
+    city: Texas
+    state: TX
+    postal_code: '27564'
+  first_name: Jose
+  middle_name: Marcus
+  last_name: Dacascos
+- !ruby/object:Contact
+  phone_numbers:
+  - !ruby/object:PhoneNumber
+    kind: Phone
+    number: 911-123-45-67
+  - !ruby/object:PhoneNumber
+    kind: Phone
+    number: 912-321-54-76
+  addresses:
+  - !ruby/object:Address
+    kind: Home
+    street_1: 123 Main St.
+    street_2: ''
+    city: Portland
+    state: OR
+    postal_code: '12345'
+  first_name: Andrey
+  middle_name: Igorevich
+  last_name: Komolov
+- !ruby/object:Contact
+  phone_numbers:
+  - !ruby/object:PhoneNumber
+    kind: Phone
+    number: 911-987-65-43
+  - !ruby/object:PhoneNumber
+    kind: Phone
+    number: 912-412-22-44
+  addresses:
+  - !ruby/object:Address
+    kind: Office
+    street_1: 2201 Main St.
+    street_2: ''
+    city: Texas
+    state: TX
+    postal_code: '27564'
+  first_name: Jose
+  middle_name: Marcus
+  last_name: Dacascos
+- !ruby/object:Contact
+  phone_numbers:
+  - !ruby/object:PhoneNumber
+    kind: Home
+    number: 919-123-4567
+  addresses:
+  - !ruby/object:Address
+    kind: Home
+    street_1: Main Str.
+    street_2: '#243'
+    city: Albukerce
+    state: TX
+    postal_code: '12345'
+  first_name: Sara
+  middle_name: Jhonson
+  last_name: Conor

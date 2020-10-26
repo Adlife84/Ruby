@@ -1,4 +1,5 @@
 require "./contact_class.rb"
+require "yaml"
 
 class AddressBook
 
@@ -6,13 +7,28 @@ class AddressBook
 
     def initialize
         @contacts = []
+        open()
     end
+
+    def open
+        if File.exist?("contacts.yml")
+          @contacts = YAML.load_file("contacts.yml")
+        end
+    end
+    
+    def save
+        File.open("contacts.yml", "w") do |file|
+          file.write(contacts.to_yaml)
+        end
+    end
+    
 
     def run
         loop do
             puts "------------Address Book Menu-------------"
             puts "a: to Add Contact"
             puts "p: to Print Addressbook"
+            puts "s: Search contact"
             puts "e: to Exit"
             puts "Enter your choice."
             input = gets.chomp.downcase
@@ -21,7 +37,14 @@ class AddressBook
                 add_contact
             when 'p'
                 print_contact_list
+            when 's'
+                puts "Search term: "
+                search = gets.chomp
+                find_by_name(search)
+                find_by_phone_number(search)
+                find_by_address(search)
             when 'e'
+                save()
                 break
             end
         end
@@ -35,6 +58,44 @@ class AddressBook
         contact.middle_name = gets.chomp
         puts "What is Last name?"
         contact.last_name = gets.chomp
+
+        loop do
+        puts "Add phone number or address? "
+        puts "p: Add phone number"
+        puts "a: Add address"
+        puts "(Any key to go back)"
+        
+        input = gets.chomp.downcase
+        
+            case input
+            when 'p'
+                phone = PhoneNumber.new
+                print "Phone number kind (Home, Work, etc): "
+                phone.kind = gets.chomp
+                print "Number: "
+                phone.number = gets.chomp
+                contact.phone_numbers.push(phone)
+            when 'a'
+                address = Address.new
+                print "Address Kind (Home, Work, etc): "
+                address.kind = gets.chomp
+                print "Address line 1: "
+                address.street_1 = gets.chomp
+                print "Address line 2: "
+                address.street_2 = gets.chomp
+                print "City: "
+                address.city = gets.chomp
+                print "State: "
+                address.state = gets.chomp
+                print "Postal Code: "
+                address.postal_code = gets.chomp
+                contact.addresses.push(address)
+            else
+                print "\n"
+                break
+            end
+        end
+
         @contacts.push(contact)
     end
 

@@ -8,6 +8,36 @@ class AddressBook
         @contacts = []
     end
 
+    def run
+        loop do
+            puts "------------Address Book Menu-------------"
+            puts "a: to Add Contact"
+            puts "p: to Print Addressbook"
+            puts "e: to Exit"
+            puts "Enter your choice."
+            input = gets.chomp.downcase
+            case input
+            when 'a'
+                add_contact
+            when 'p'
+                print_contact_list
+            when 'e'
+                break
+            end
+        end
+    end
+
+    def add_contact
+        contact = Contact.new
+        puts "What is First name?"
+        contact.first_name = gets.chomp
+        puts "What is Middle name?"
+        contact.middle_name = gets.chomp
+        puts "What is Last name?"
+        contact.last_name = gets.chomp
+        @contacts.push(contact)
+    end
+
     def find_by_name(name)
         results = []
         search = name.downcase
@@ -111,6 +141,9 @@ puts "-" * 100
 addressbook.find_by_phone_number("123")
 
 puts "-" * 100
-# Caaled find_by_address method to find "2201" address
+# Caled find_by_address method to find "2201" address
 addressbook.find_by_address("2201")
+
+# Called menu from .run method
+addressbook.run 
 

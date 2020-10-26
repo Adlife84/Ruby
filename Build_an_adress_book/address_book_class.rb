@@ -10,12 +10,14 @@ class AddressBook
         open()
     end
 
+    # Open file with contacts database
     def open
         if File.exist?("contacts.yml")
           @contacts = YAML.load_file("contacts.yml")
         end
     end
     
+    # Save new data to file
     def save
         File.open("contacts.yml", "w") do |file|
           file.write(contacts.to_yaml)

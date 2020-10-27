@@ -1,6 +1,12 @@
 module Fetcher
+    def self.included(klass)
+        attr_reader :fetch_count
+    end
+    
     def fetch(item)
-        puts "I'll bring that #{item} right back!"
+        @fetch_count ||= 0
+        @fetch_count += 1
+        puts "[#{@name}, Fetch count: #{@fetch_count}] #{name} bring that #{item} right back!"
     end 
 end
 
@@ -32,4 +38,5 @@ dog.fetch("Stick")
 
 cat = Cat.new('Barsik')
 cat.fetch("Mouse")
+cat.fetch("Fly")
 

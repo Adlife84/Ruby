@@ -1,0 +1,11 @@
+<% grade = 65 %>
+<% array = [1,15,55] %>
+<% if grade > 60 %>
+    <h1>You passed!</h1>
+<% array.each do |item| %>
+    <p> Number: <%= item %> </p>
+<% end %>
+
+<% else %>
+    <h1> Sorry :( You did not pass. </h1>
+<% end %>

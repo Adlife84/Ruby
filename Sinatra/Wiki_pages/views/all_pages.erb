@@ -1,0 +1,19 @@
+<h1> All items on page </h1>
+
+
+<%= listArray = `ls ./pages/`.split("\n") %>
+<% listArray.each_with_index { |name, index| listArray[index] = name.chomp(".txt") } %>
+
+<ul>
+<% listArray.each do |item| %>
+    <li><a href="<%= item %>"> <%= item %> </a></li>
+<% end %>
+</ul>
+
+<p><a href="/"> Back to main menu</a></p>
+
+
+
+
+
+

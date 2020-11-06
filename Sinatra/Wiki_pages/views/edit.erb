@@ -1,0 +1,20 @@
+<h1>Edit page: <%= @title %></h1>
+<p><%= @content %> </p>
+
+<div>
+    <form method="post" action="/<%= @title %>">
+    <input type="hidden" name="_method" value="put"> 
+        <fieldset>
+            <label for="content">Content:</label>
+            <textarea row="20" cols="50" name="content" id="content"><%= @content %></textarea>
+        </fieldset>
+        <input type="submit">
+    </form>
+    <a href="/">Back to Index</a>
+</div>
+
+
+<div>
+    <a href="/<%= @title %>/edit">Edit this Page</a>
+    <p><a href="/"> Back to main menu</a></p>
+</div>

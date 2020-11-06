@@ -29,6 +29,12 @@ get ("/new") do
     erb :new # load from template
 end
 
+get ("/all_pages") do
+    "Hello from all pages"
+    result = ""
+    # files = Dir[ './pages/*' ].select{ |f| File.file? f } 
+    erb :all_pages
+end
 
 post ("/create") do
     "Hello from '/create' route!"
@@ -37,7 +43,10 @@ post ("/create") do
     redirect URI.escape("/#{params["title"]}")
 end
 
-
+put ("/:title") do
+    save_content(params["title"], params["content"])
+    redirect URI.escape("/#{params["title"]}")
+end
 
 
 # This route have to be in the end becouse it can take any parameters from URL
@@ -45,4 +54,10 @@ get "/:title" do
     @title = params[:title]
     @content = page_content(@title)
     erb :show # load template from show.erb
+end
+
+get "/:title/edit" do
+    @title = params[:title]
+    @content = page_content(@title)
+    erb :edit # load template from show.erb
 end
